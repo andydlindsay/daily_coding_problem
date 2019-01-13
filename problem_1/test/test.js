@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const solution = require('../p1');
+const solution = require('../solution');
 
 describe('Tests for Problem #1', () => {
 
