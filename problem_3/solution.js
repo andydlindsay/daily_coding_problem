@@ -28,12 +28,12 @@ function visit(node) {
     if (node.left instanceof Node) {
         returnString += visit(node.left);
     } else {
-        returnString += node.left ? `${node.left.val},` : 'undefined,';
+        returnString += 'undefined,';
     }
     if (node.right instanceof Node) {
         returnString += visit(node.right);
     } else {
-        returnString += node.right ? `${node.right.val}` : 'undefined),'; 
+        returnString += 'undefined),'; 
     }
     return returnString;
 }
@@ -44,5 +44,14 @@ module.exports.serialize = (node) => {
 
 module.exports.deserialize = (node) => {
     // (root,(left,(left.left,undefined,undefined),undefined),(right,undefined,undefined))
+    // (root,(left,(left.left,undefined,undefined),undefined),(right,undefined,undefined))
+    // Node {
+    //     val: 'root',
+    //     left: 
+    //      Node {
+    //        val: 'left',
+    //        left: Node { val: 'left.left', left: undefined, right: undefined },
+    //        right: undefined },
+    //     right: Node { val: 'right', left: undefined, right: undefined } }
     console.log(node);
 };
