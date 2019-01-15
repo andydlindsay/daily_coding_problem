@@ -44,14 +44,33 @@ module.exports.serialize = (node) => {
 
 module.exports.deserialize = (node) => {
     // (root,(left,(left.left,undefined,undefined),undefined),(right,undefined,undefined))
-    // (root,(left,(left.left,undefined,undefined),undefined),(right,undefined,undefined))
-    // Node {
-    //     val: 'root',
-    //     left: 
+    // Node { val: 'root', left: 
     //      Node {
     //        val: 'left',
     //        left: Node { val: 'left.left', left: undefined, right: undefined },
     //        right: undefined },
     //     right: Node { val: 'right', left: undefined, right: undefined } }
-    console.log(node);
+    // Node { val: 'root', left: undefined, right: undefined }
+
+    let rootNode;
+    for (let i = 0; i < node.length; i++) {
+        switch (node[i]) {
+            case '(':
+                // new Node starting
+                const nodeName = node.substr(i + 1, node.indexOf(',', i) - 1).split(',')[0];
+                const newNode = new Node(nodeName);
+                if (nodeName === 'root') {
+                    rootNode = newNode;
+                }
+                i += nodeName.length - 1;
+                break;
+            case ')':
+                // Node ending
+
+                break;
+
+        }
+    }
+    console.log(rootNode);
+    return rootNode;
 };
