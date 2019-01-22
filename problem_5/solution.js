@@ -15,20 +15,13 @@
 */
 
 module.exports.cons = (a, b) => {
-    const pair = (f) => {
-        return f(a, b);
-    };
-    return pair;
+    return f => f(a, b);
 };
 
 module.exports.car = (input) => {
-    return input((a) => {
-        return a;
-    });
+    return input(a => a);
 };
 
 module.exports.cdr = (input) => {
-    return input((a, b) => {
-        return b;
-    });
+    return input((a, b) => b);
 };
