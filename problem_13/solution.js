@@ -16,13 +16,16 @@ module.exports = (input) => {
     let i = 0;
 
     // minimum length string
-    for (i = currentIndex; i < currentIndex + k; i++) {
+    let maxIndex = currentIndex + k;
+    for (i = currentIndex; i < maxIndex; i++) {
       if (s[i]) {
+        if (substringArr.includes(s[i])) {
+          maxIndex++;
+        }
         substringArr.push(s[i]);
       }
     }
 
-    // i === currentIndex + k at this point
     while (true) {
       if (substringArr.includes(s[i])) {
         substringArr.push(s[i]);

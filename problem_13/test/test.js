@@ -21,4 +21,13 @@ describe('Tests for Problem #13', () => {
     assert.equal(solution(input), output);
   });
 
+  it('returns "aaabb" given s = "aaabbcdb" and k = 2', () => {
+    const input = {
+        s: 'aaabbcdb',
+        k: 2
+    };
+    const output = 'aaabb';
+    assert.equal(solution(input), output);
+  });
+
 });
