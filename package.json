@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/andydlindsay/daily_coding_problem#readme",
   "dependencies": {
-    "chai": "^4.2.0"
+    "@types/sinon": "^7.0.5",
+    "@types/sinon-chai": "^3.2.2",
+    "chai": "^4.2.0",
+    "mocha-sinon": "^2.1.0",
+    "save-dev": "^2.0.0",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0"
   }
 }
